@@ -13,14 +13,12 @@ MIN_ANGULAR_VELOCITY = -2.0
 def velocity_handler(req):
   vel = Twist()
   is_set_success = True
-  if req.linear_velocity <= MAX_LINEAR_VELOCITY and
-     req.linear_velocity >= MIN_LINEAR_VELOCITY:
+  if req.linear_velocity <= MAX_LINEAR_VELOCITY and (req.linear_velocity >= MIN_LINEAR_VELOCITY):
      vel.linear.x = req.linear_velocity
   else:
     is_set_success = False
 
-  if req.angular_velocity <= MAX_ANGULAR_VELOCITY and
-     req.angular_velocity >= MIN_ANGULAR_VELOCITY:
+  if req.angular_velocity <= MAX_ANGULAR_VELOCITY and (req.angular_velocity >= MIN_ANGULAR_VELOCITY):
      vel.angular.x = req.angular_velocity
   else:
     is_set_success = False
